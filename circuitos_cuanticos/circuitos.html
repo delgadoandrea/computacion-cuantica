@@ -53,6 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compuertas cuanticas aplicadas en un cubit" href="un_cubit.html" />
     <link rel="prev" title="Transformaciones Unitarias" href="transformaciones.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,6 +98,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../calendario.html">
+   Calendario
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../ejercicios_tareas.html">
    Tareas y Ejercicios
   </a>
@@ -119,6 +125,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      El Modelo de Circuitos Cuanticos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="un_cubit.html">
+     Compuertas cuanticas aplicadas en un cubit
     </a>
    </li>
   </ul>
@@ -240,68 +251,7 @@
 <span id="circuitos"></span><h1>El Modelo de Circuitos Cuanticos<a class="headerlink" href="#el-modelo-de-circuitos-cuanticos" title="Permalink to this headline">¶</a></h1>
 <p>El modelo de computacion clasica de circuitos puede ser generalizado a un modelo de circuitos cuanticos. En este modelo, los qubits son transportados por cables y en su recorrido se encuentran con compuertas cuanticas que actuan sobre ellos, como en la siguiente figura. Los cables son las lineas horizontales y los cubits se propagan de izquierda a derecha en el tiempo.</p>
 <p><img alt="circuito" src="../_images/circuit.png" /></p>
-<p>En este ejemplo el estado de 3 cubits entra en el circuito para ser procesado por las compuertas <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(R_{y}\)</span>. Como salida del circuito tenemos el estado de 3 cubits. Se realiza una medicion cubit por cubit en la base computacional. Ahora que se han establecido los conceptos de unitariedad y reversibilidad de los operadores cuanticos, podemos empezar a discutir dichos operadores en terminos de compuertas cuanticas. El caso mas sencillo es el de las compuertas cuanticas que operan en un solo cubit. Para empezar, vamos a repasar la representacion de un cubit como estado cuantico.</p>
-<p>El estado de un cubit se puede representar de la siguiente forma:</p>
-<p><span class="math notranslate nohighlight">\(
-    |\Psi&gt; = \alpha|0&gt; + \beta|1&gt;
-\)</span></p>
-<p>En la ecuacion anterior, <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> representan numeros complejos que indican las amplitudes de probabilidad para los estados base <span class="math notranslate nohighlight">\(|0&gt;\)</span> y <span class="math notranslate nohighlight">\(|1&gt;\)</span>. La suma de estas probabilidades de amplitud debe ser igual a 1 y por lo tanto, tenemos la condicion: <span class="math notranslate nohighlight">\(|\alpha|^{2} + |\beta|^{2} = 1\)</span>. Un cubit en el estado <span class="math notranslate nohighlight">\(\alpha|0&gt; + \beta|1&gt;\)</span> puede ser visualizado como un punto <span class="math notranslate nohighlight">\((\theta, \phi)\)</span> en la esfera de Bloch, donde <span class="math notranslate nohighlight">\(\alpha = cos(\theta/2)\)</span> y <span class="math notranslate nohighlight">\(\beta = e^{i\phi}sin(\theta/2)\)</span>. Finalmente, las bases ortogonales <span class="math notranslate nohighlight">\(|0&gt;\)</span> y <span class="math notranslate nohighlight">\(|1&gt;\)</span> pueden ser representadas como vectores de columna:</p>
-<p><span class="math notranslate nohighlight">\(
-    |0&gt; = \begin{pmatrix} 1 \\ 0 \end{pmatrix},
-    |1&gt; = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-\)</span></p>
-<p>Los operadores que actuan en un cubit deben preservar la norma de los vectores base, y por lo tanto, las compuertas cuanticas que operan en un cubit son matrices unitarias de estructura 2X2. Dentro de esta categoria, las matrices de Pauli son de los operadores mas relevantes para la computacion cuantica.</p>
-<p><span class="math notranslate nohighlight">\(
-    X = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}; Y = \begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix}; Z = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}
-\)</span></p>
-<p>Otras compuertas cuanticas para un solo cubit incluyen la compuerta de Hadamard (H), la compuerta de fase (S), y la compuerta <span class="math notranslate nohighlight">\(\pi/8\)</span> (T):</p>
-<p><span class="math notranslate nohighlight">\(
-    H = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}; S = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; i \end{pmatrix}; T = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; exp(i\pi/4) \end{pmatrix}
-\)</span></p>
-<p><strong>Ejercicio:</strong> Comprobar que <span class="math notranslate nohighlight">\(H=(X+Z)/\sqrt{2}\)</span> y <span class="math notranslate nohighlight">\(S=T^{2}\)</span></p>
-<p>Las matrices de Pauli son la base de 3 matrices unitarias muy importantes, los operadores de rotacion. Los operadores de rotacion sobre los ejes <span class="math notranslate nohighlight">\(\hat{x}, \hat{y},\)</span> y <span class="math notranslate nohighlight">\(\hat{z}\)</span> son generados al exponenciar las matrices de Pauli:</p>
-<p><span class="math notranslate nohighlight">\(
-	R_{x}(\theta) = e^{-i\theta X/2} = cos\frac{\theta}{2}I - i sin\frac{\theta}{2}X = \begin{pmatrix} cos\frac{\theta}{2} &amp; -isin\frac{\theta}{2} \\ -isin\frac{\theta}{2} &amp; cos\frac{\theta}{2} \end{pmatrix}\\
-\)</span>
-<span class="math notranslate nohighlight">\(
-	R_{y}(\theta) = e^{-i\theta Y/2} = cos\frac{\theta}{2}I - i sin\frac{\theta}{2}Y = \begin{pmatrix} cos\frac{\theta}{2} &amp; -sin\frac{\theta}{2} \\ sin\frac{\theta}{2} &amp; cos\frac{\theta}{2} \end{pmatrix}\\
-\)</span>
-<span class="math notranslate nohighlight">\(
-	R_{z}(\theta) = e^{-i\theta Z/2} = cos\frac{\theta}{2}I - i sin\frac{\theta}{2}Z = \begin{pmatrix} e^{-i\frac{\theta}{2}} &amp; 0 \\ 0 &amp; e^{-i\frac{\theta}{2}} \end{pmatrix}\\
-\)</span></p>
-<p>Por ejemplo, consideremos un estado arbitrario de 1-cubit descrito en terminos de sus angulos del vector de Bloch <span class="math notranslate nohighlight">\(\sigma\)</span> y <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(
-    cos\frac{\sigma}{2}|0&gt; + e^{i\tau}sin\frac{\sigma}{2}|1&gt;
-\)</span></p>
-<p>cuya representacion en vector de columna corresponde a:</p>
-<p><span class="math notranslate nohighlight">\(
-    \begin{pmatrix}
-    cos\frac{\sigma}{2} \\ e^{i\tau}sin\frac{\sigma}{2}
-    \end{pmatrix}
-\)</span></p>
-<p>El efecto de aplicar <span class="math notranslate nohighlight">\(R_{z}(\theta)\)</span> a este estado sera:</p>
-<p><span class="math notranslate nohighlight">\(
-	 \begin{pmatrix} e^{-i\frac{\theta}{2}} &amp; 0 \\ 0 &amp; e^{-i\frac{\theta}{2}} \end{pmatrix} \begin{pmatrix}
-    cos\frac{\sigma}{2} \\ e^{i\tau}sin\frac{\sigma}{2}
-    \end{pmatrix} 
-\)</span>
-<span class="math notranslate nohighlight">\(
-    =  \begin{pmatrix}
-    e^{-i\frac{\theta}{2}}cos\frac{\sigma}{2} \\ e^{-i\frac{\theta}{2}}e^{i\tau}sin\frac{\sigma}{2} \end{pmatrix}\\
-\)</span>
-<span class="math notranslate nohighlight">\(   
-    = e^{-i\frac{\theta}{2}}\begin{pmatrix}
-    cos\frac{\sigma}{2} \\ e^{i\theta}e^{i\tau}sin\frac{\sigma}{2} \\
-    \end{pmatrix}\\
-\)</span>
-<span class="math notranslate nohighlight">\(
-    = e^{-i\frac{\theta}{2}}(cos\frac{\theta}{2}|0&gt; + e^{i(\tau + \theta})sin\frac{\theta}{2}|1&gt;)
-\)</span></p>
-<p>Eliminando la fase global, el estado resultante de aplicar <span class="math notranslate nohighlight">\(R_{z}(\theta)\)</span> es:</p>
-<p><span class="math notranslate nohighlight">\(
-    cos\frac{\theta}{2}|0&gt; + e^{i(\tau + \theta})sin\frac{\theta}{2}|1&gt;
-\)</span></p>
-<p>y por lo tanto, podemos concluir que la compuerta <span class="math notranslate nohighlight">\(R_{z}(\theta)\)</span> ha cambiado el angulo <span class="math notranslate nohighlight">\(\tau\)</span> a <span class="math notranslate nohighlight">\(\tau + \theta\)</span>, lo que representa una rotacion de <span class="math notranslate nohighlight">\(\theta\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span> de la esfera de Bloch.</p>
+<p>En este ejemplo el estado de 3 cubits entra en el circuito para ser procesado por las compuertas <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(R_{y}\)</span>. Como salida del circuito tenemos el estado de 3 cubits. Se realiza una medicion cubit por cubit en la base computacional. Ahora que se han establecido los conceptos de unitariedad y reversibilidad de los operadores cuanticos, podemos empezar a discutir dichos operadores en terminos de compuertas cuanticas.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -330,6 +280,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="transformaciones.html" title="previous page">Transformaciones Unitarias</a>
+    <a class='right-next' id="next-link" href="un_cubit.html" title="next page">Compuertas cuanticas aplicadas en un cubit</a>
 
         </div>
         
