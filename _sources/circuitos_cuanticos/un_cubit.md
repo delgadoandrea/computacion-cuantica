@@ -201,3 +201,14 @@ U = K(\delta)T(\alpha)R(\beta)T(\gamma)
 $
 
 En conclusion, esta representacion general de compuertas que actuan en un solo cubit, nos permitira desarrollar el formalismo necesario para construit compuertas que actuen en multiples cubits en secciones siguientes.
+
+Por ultimo, vamos a utilizar la expresion para representar U mediante el producto de tres tipos de transformacions para definir el siguiente corolario que tiene aplicaciones en la construccion de compuertas controladas.
+
+### Corolario
+Toda compuerta unitaria *U* de 1-cubit se puede escribir en la forma:
+
+$
+U = e^{i\alpha}AXBXC,
+$
+
+donde A, B y C son operadores unitarios que cumplen $ABC=I$.

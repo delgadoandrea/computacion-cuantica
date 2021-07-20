@@ -13,10 +13,10 @@ La siguiente es una lista del material cubierto durante los tres modulos del cur
 ### Modulo Basico
 
 - Introduccion a la computacion cuantica
-	- El bit cuantic
+	- El bit cuántico
 	- La esfera de Bloch
-	- Notacion de Dirac
-	- Compuertas cuanticas para sistemas d eun cubit
+	- Notación de Dirac
+	- Compuertas cuanticas para sistemas de un cubit
 - Los cubits como unidad fundamental de procesamiento de informacion
 	- Multiples cubits y entrelazamiento
 	- El estado de Bell
