@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transformaciones Unitarias &#8212; Introduccion a la Computacion Cuantica con IBM Qiskit</title>
+    <title>Compuertas Universales UX &#8212; Introduccion a la Computacion Cuantica con IBM Qiskit</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="El Modelo de Circuitos Cuanticos" href="circuitos.html" />
-    <link rel="prev" title="Un Modelo Cuantico de Computacion" href="../circuitos_cuanticos.html" />
+    <link rel="prev" title="Compuertas Control-U" href="compuertas_control.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -117,8 +116,8 @@
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="transformaciones.html">
      Transformaciones Unitarias
     </a>
    </li>
@@ -137,8 +136,8 @@
      Compuertas Control-U
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compuertas_universales.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Compuertas Universales UX
     </a>
    </li>
@@ -184,11 +183,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/circuitos_cuanticos/transformaciones.ipynb"><button type="button"
+            href="../_sources/circuitos_cuanticos/compuertas_universales.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/circuitos_cuanticos/transformaciones.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/circuitos_cuanticos/compuertas_universales.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -208,7 +207,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/delgadoandrea/computacion-cuantica/issues/new?title=Issue%20on%20page%20%2Fcircuitos_cuanticos/transformaciones.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/delgadoandrea/computacion-cuantica/issues/new?title=Issue%20on%20page%20%2Fcircuitos_cuanticos/compuertas_universales.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -229,7 +228,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/delgadoandrea/computacion-cuantica/master?urlpath=tree/circuitos_cuanticos/transformaciones.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/delgadoandrea/computacion-cuantica/master?urlpath=tree/circuitos_cuanticos/compuertas_universales.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -249,6 +248,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compuerta-u3">
+   Compuerta U3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compuerta-u2">
+   Compuerta U2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compuerta-u1">
+   Compuerta U1
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -257,49 +279,44 @@
         
               <div>
                 
-  <div class="section" id="transformaciones-unitarias">
-<span id="transformaciones"></span><h1>Transformaciones Unitarias<a class="headerlink" href="#transformaciones-unitarias" title="Permalink to this headline">¶</a></h1>
-<p>En este curso, nos referimos a una <strong>transformacion cuantica</strong>, a aquella transformacion que hace un mapeo de un sistema cuantico a si mismo. De esta manera, las mediciones que pudieramos ejecutar en dichos sistemas cuanticos no representan transformaciones, y el resultado de aplicar una operacion de medicion a un estado en especifico es simplemente probabilistico.</p>
-<p>Por otro lado, la naturaleza no permite tranformaciones arbitrarias en un sistema cuantico. Por el contrario, la naturaleza limita las transformaciones aplicadas a aquellas que respetan las propiedades ligadas a la medicion y superposicion cuantica. Las transformaciones que satisfacen dichas propiedades son de tipo unitario y tienen las siguientes propiedades:</p>
-<ul class="simple">
-<li><p>Son transformaciones lineares en el espacio vectorial asociado al estado cuantico. Es decir, para cualquier transformacion <em>U</em>:
+  <div class="section" id="compuertas-universales-ux">
+<span id="compuertas-universales"></span><h1>Compuertas Universales UX<a class="headerlink" href="#compuertas-universales-ux" title="Permalink to this headline">¶</a></h1>
+<p>Las compuertas de <strong>tipo universal</strong> o <strong>UX</strong> se refieren al tipo de compuertas <em>universales</em> que permiten rotaciones sobre el espacio de Hilbert. Dependiendo del número de parametros que una compuerta de tipo <em>UX</em> tome  de argumento, dicha compuerta puede suponer una rotacion sobre uno o mas ejes x,y, o z en la esfera de Bloch.</p>
+<div class="section" id="compuerta-u3">
+<h2>Compuerta U3<a class="headerlink" href="#compuerta-u3" title="Permalink to this headline">¶</a></h2>
+<p>La compuerta <strong>U3</strong> requiere tres parametros que permiten la rotacion sobre los ejes x,y y z. La representacion de la compuerta U3 se define mediante la matriz:
 <span class="math notranslate nohighlight">\(
-      U(a_{1}|\Phi_{1}&gt; + ... + a_{k}|\Phi_{k}&gt;) = a_{1}U|\Phi_{1}&gt; + ... + a_{k}U|\Phi_{k}&gt;
-  \)</span></p></li>
-<li><p>La transformacion <em>U</em> conserva el producto interno entre dos estados <span class="math notranslate nohighlight">\(\Phi\)</span> y <span class="math notranslate nohighlight">\(\Psi\)</span>:
-<span class="math notranslate nohighlight">\(
-      &lt;\Phi|U^{\dagger}U|\Psi&gt; = &lt;\Phi|\Psi&gt;
-  \)</span>
-Esta propiedad implica que bajo cualquier transformacion unitaria <em>U</em>, los vectores de longitud unitaria se transforman en vectores de longitud unitaria y por lo tanto, que los espacios ortogonales se mantienen ortogonales despues de la transformacion.</p></li>
-<li><p>El adjunto de la transformacion unitaria <span class="math notranslate nohighlight">\(U\)</span> debe ser igual a su inverso:
-<span class="math notranslate nohighlight">\(
-      U^{\dagger} = U^{-1}
-  \)</span>
-Esto como resultado del hecho de que la segunda condicion solo aplica si <span class="math notranslate nohighlight">\(U^{\dagger}U = I\)</span></p></li>
-</ul>
-<p>Por lo tanto, podemos definir a los operadores unitarios como transformaciones unitarias en el espacio de Hilbert, que resultan en la transformacion de un vector de estado, que no cambia su longitud. Por ejemplo, para un cubit, los estados base pueden ser descritos en el espacio de Hilbert como bases ortonormales <span class="math notranslate nohighlight">\(|v_{0}&gt; = \alpha|0&gt; + \beta|1&gt;\)</span>, y <span class="math notranslate nohighlight">\(|v_{1}&gt; = \gamma|0&gt; + \delta|1&gt;\)</span>, donde <span class="math notranslate nohighlight">\(\alpha, \beta, \gamma\)</span> y <span class="math notranslate nohighlight">\(\delta\)</span> son variables complejas.</p>
-<p>Una transformacion linear en un espacio vectorial complejo puede ser descrito por una matriz <em>U</em>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-    U =\begin{pmatrix}
-    \alpha &amp; \gamma \\
-    \beta &amp; \delta\\
-    \end{pmatrix}
-\end{split}\]</div>
-<p>con matriz adjunta:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-    U^{\dagger} = \begin{pmatrix}
-    \alpha^{\dagger} &amp; \beta^{\dagger} \\
-    \gamma^{\dagger} &amp; \delta^{\dagger}\\
-    \end{pmatrix}
-\end{split}\]</div>
-<p><strong>Ejercicio</strong>
-Verificar que <span class="math notranslate nohighlight">\(UU^{\dagger} = U^{\dagger}U = I\)</span></p>
-<p>Por lo tanto, la condicion de unitariedad asegura tambien, que las transformaciones unitarias son reversibles. Esto quiere decir, que si aplicamos un operador unitario a un cubit por medio de una compuerta cuantica, seguida del operador adjunto de dicha compuerta, el resultado seria equivalente a aplicar la matriz de indentidad al vector original.</p>
-<p>Una implicacion importante de esta propiedad es la no-perdida de informacion. Si necesitaramos regresar al estado anterior, solo necesitamos repetir todas las operaciones unitarias que se aplicaron al sistema.</p>
-<p>Cabe mencionar que la condicion de unitariedad simplemente asegura que el operador <span class="math notranslate nohighlight">\(U\)</span> no viola ninguno de los principios generales de la teoria cuantica. Esto no implica que la transformacion puede ser implementada eficientemente. En el siguiente modulo de este curso vamos a ver que es el caso de las compuertas de Toffoli, por mencionar un ejemplo.</p>
-<p>En el modelo estandar de circuitos dentro de la computacion cuantica, todo proceso de informacion es mediado por transformaciones cuanticas, y la medicion solo se utiliza hasta el final, para recuperar los resultados. Por lo tanto, es importante hace enfasis en el hecho de que los terminos <em>transformacion cuantica</em> u <em>operador cuantico</em> se refieren a los operadores unitarios que actuan en el espacio vectorial de un estado cuantico determinado. Los operadores de medicion no entran dentro de esta descripcion.</p>
+U_{3(\theta,\phi,\lambda)} = 
+\begin{pmatrix}
+cos\frac{\theta}{2} &amp; -e^{i\lambda}sin\frac{\theta}{2} \\
+e^{i\phi}sin\frac{\theta}{2} &amp; e^{i\phi + \lambda}cos\frac{\theta}{2}
+\end{pmatrix}
+\)</span></p>
+<p>En esta matriz, <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> y <span class="math notranslate nohighlight">\(\lambda\)</span> representan los angulos de rotacion (en radianes) sobre el eje x, y y z, respectivamente. Para que el operador representado por la matriz U3 satisfaga las condiciones de unitariedad, dichos angulos deben estar confinados a los rangos <span class="math notranslate nohighlight">\(0 \leq \theta \leq \pi\)</span>, <span class="math notranslate nohighlight">\(0 \leq \phi \leq 2\pi\)</span> y <span class="math notranslate nohighlight">\(0 \leq \lambda \leq 2\pi\)</span>. Las compuertas U2 y U1 representan subconjuntos de las compuertas U3. En realidasd, la compuerta U3 siempre es utilizada en el <em>backend</em> de Qiskit y cuando llamamos las compuertas U2 y U1, el parametro <span class="math notranslate nohighlight">\(\theta\)</span> se fija en el valor <span class="math notranslate nohighlight">\(\pi/2\)</span>.</p>
+</div>
+<div class="section" id="compuerta-u2">
+<h2>Compuerta U2<a class="headerlink" href="#compuerta-u2" title="Permalink to this headline">¶</a></h2>
+<p>La compuerta <strong>U2</strong> requiere dos parametros que corresponden a los parametros <span class="math notranslate nohighlight">\(\phi\)</span> y <span class="math notranslate nohighlight">\(\lambda\)</span> en la compuerta <em>U3</em>. La representacion de matrix de la compuerta U2 es la siguiente:</p>
+<p><span class="math notranslate nohighlight">\(
+U_{2(\phi,\lambda)} = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 &amp; e^{-i\lambda} \\
+e^{i\phi} &amp; e^{i(\phi + \lambda)}
+\end{pmatrix}
+\)</span></p>
+</div>
+<div class="section" id="compuerta-u1">
+<h2>Compuerta U1<a class="headerlink" href="#compuerta-u1" title="Permalink to this headline">¶</a></h2>
+<p>La compuerta <strong>U1</strong> unicamente requiere un parametro y es aplicado mediante una rotacion sobre el eje z. Por lo tanto, la compuerta U1 tiene una representacion equivalente a la compuerta <span class="math notranslate nohighlight">\(R_{z}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(
+U_{1(\lambda)} = 
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; e^{\lambda}
+\end{pmatrix}
+\)</span></p>
+<p>El angulo <span class="math notranslate nohighlight">\(\lambda\)</span> aqui, corresponde a el angulo de rotacion en radianes sobre el eje z, y por lo tanto ejecuta una <strong>rotacion de fase</strong>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -327,8 +344,7 @@ Verificar que <span class="math notranslate nohighlight">\(UU^{\dagger} = U^{\da
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../circuitos_cuanticos.html" title="previous page">Un Modelo Cuantico de Computacion</a>
-    <a class='right-next' id="next-link" href="circuitos.html" title="next page">El Modelo de Circuitos Cuanticos</a>
+    <a class='left-prev' id="prev-link" href="compuertas_control.html" title="previous page">Compuertas Control-U</a>
 
         </div>
         
