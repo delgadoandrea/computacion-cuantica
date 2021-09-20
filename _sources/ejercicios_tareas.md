@@ -15,8 +15,8 @@ En esta seccion podras encontrar las tareas asignadas durante el curso, asi como
 
 ## Tareas y Ejercicios
 
-- Tarea 1: Algebra Lineal.
-- Tarea 2: Estados de Bell, cambio de base, representaciones diagonales.
+- [Tarea 1: Algebra Lineal](https://www.dropbox.com/s/10f6odhttnh05hb/Tarea%20Numero%201%20%28IAC-ICC-N003-A%29%20%28Vista%20previa%29%20Microsoft%20Forms.pdf?dl=0)
+- [Tarea 2: Estados de Bell, cambio de base, representaciones diagonales](https://www.dropbox.com/s/9gohg7dqtruoglv/Tarea%20Numero%202%20%28IAC-ICC-N003-A%29%20%28Vista%20previa%29%20Microsoft%20Forms.pdf?dl=0)
 
 ## Notebooks:
 
